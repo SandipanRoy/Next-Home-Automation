@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="Next_Home.Hotspot_Configuration_Dialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Next_Home"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Configure Hotspot" Loaded="ContentDialog_Loaded">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <!--Hotspot Icon-->
+            <FontIcon Glyph="&#xE88A;" FontSize="40" HorizontalAlignment="Center" Foreground="{ThemeResource SystemAccentColorLight3}"></FontIcon>
+
+            <!--Progress Bar-->
+            <ProgressBar IsIndeterminate="True" Visibility="Visible" Margin="0,16,0,0"></ProgressBar>
+
+            <Grid HorizontalAlignment="Stretch" Margin="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <!--Available Hotspot List-->
+                <ComboBox Grid.Column="0" HorizontalAlignment="Stretch" x:Name="Available_Hotspots_List" PlaceholderText="Select From Available Hotspot"  Tapped="Available_Hotspots_List_Tapped"></ComboBox>
+                <!--Refresh Icon-->
+                <FontIcon x:Name="Refresh_Icon" x:FieldModifier="public" Grid.Column="1" Foreground="{ThemeResource SystemAccentColor}" Glyph="&#xE895;" PointerEntered="Refresh_Icon_PointerEntered" PointerExited="Refresh_Icon_PointerExited"></FontIcon>
+                <!--Network Password Input Box-->
+                <PasswordBox Margin="0,12,0,0" Grid.Row="1" Grid.Column="0" x:Name="Hotspot_Password" x:FieldModifier="public" PlaceholderText="Enter password"></PasswordBox>
+            </Grid>
+
+
+
+
+
+
+
+            <!--Important Note-->
+            <TextBlock TextWrapping="Wrap" Foreground="Gray" Margin="0,24,0,0" HorizontalAlignment="Center">
+                <Run FontWeight="SemiBold">
+                    NOTE → 
+                </Run>
+                <Run>
+                    This network will be used to control your device with internet.
+                </Run>
+            </TextBlock>
+
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,16,0,0">
+
+                <!--Cancel Option Button-->
+                <Button Style="{ThemeResource ButtonRevealStyle}" Background="{ThemeResource SystemControlPageBackgroundTransparentBrush}"
+                        x:Name="Hotspot_Configuration_Dialog_Cancel_Button" Tapped="Hotspot_Configuration_Dialog_Cancel_Button_Tapped">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon x:Name="Error_Dialog_Icon" x:FieldModifier="public" FontWeight="ExtraBold" Glyph="&#xE711;"></FontIcon>
+                            <TextBlock Text="Cancel" Margin="4,0,0,0"></TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <!--Apply Option Button-->
+                <Button Style="{ThemeResource ButtonRevealStyle}" Background="{ThemeResource SystemControlPageBackgroundTransparentBrush}" Margin="4,0,0,0">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon x:Name="Apply_Icon" x:FieldModifier="public" FontWeight="ExtraBold" 
+                             Glyph="&#xE73E;" ToolTipService.ToolTip="Apply"></FontIcon>
+                            <TextBlock Text="Apply" Margin="4,0,0,0"></TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Next_Home.Added_Devices_List"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Next_Home"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:toolkit="using:CommunityToolkit.WinUI.UI.Controls"
+    mc:Ignorable="d"
+    >
+
+    <Grid>
+        
+        <!-- Show Waiting Time Animation (Progress Ring)-->
+        <ProgressRing x:Name="Local_Devices_List_Loading_Ring" x:FieldModifier="public" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40" IsActive="True"></ProgressRing>
+
+        <!--Data Template To Load Local Added Devices-->
+        <GridView x:Name="Local_Device_List" ItemsSource="{x:Bind Device_List, Mode=OneWay}" HorizontalAlignment="Center" 
+              IsItemClickEnabled="True" ItemClick="Local_Device_List_ItemClickAsync" Margin="4,10,4,10">
+
+            <!--#region Set Margin for binded items and disable default item selector animation-->
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="Margin" Value="12"></Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <ContentPresenter/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </GridView.ItemContainerStyle>
+            <!--#endregion-->
+
+
+            <!--#region Display all data through ItemTemplate-->
+            <GridView.ItemTemplate>
+
+                <DataTemplate x:DataType="local:Added_Device_Details_Display">
+
+                    <toolkit:WrapPanel Orientation="Horizontal" AllowDrop="True">
+                    
+
+                    <Grid PointerEntered="Grid_PointerEntered" PointerExited="Grid_PointerExited" CornerRadius="8">
+                        <StackPanel x:Name="Device_Card" Orientation="Vertical" CornerRadius="8" VerticalAlignment="Center" HorizontalAlignment="Center"  >
+
+                            <!--Display Smart Home Icon-->
+                            <StackPanel Orientation="Vertical" 
+                                Background="{StaticResource  CardBackgroundFillColorDefaultBrush}" >
+                                <!--Display IOT Icon-->
+                                <FontIcon Glyph="&#xF22C;" FontSize="20" Margin="12,12,0,0" HorizontalAlignment="Left" Foreground="{StaticResource SystemAccentColorLight2}" ></FontIcon>
+                                <!--Display Home Icon-->
+                                <FontIcon Glyph="&#xEA8A;" FontSize="40" Margin="0,0,0,8" Foreground="{StaticResource AppBarItemForegroundThemeBrush}" ></FontIcon>
+                            </StackPanel>
+
+
+
+                            <StackPanel Background="{StaticResource CardStrokeColorDefaultBrush}" >
+
+                                <!--Display Device Name-->
+                                <TextBlock FontSize="16" Text="{Binding Name}" TextWrapping="WrapWholeWords" FontWeight="Bold" Margin="8,4,8,0" Foreground="{StaticResource AppBarItemForegroundThemeBrush}"></TextBlock>
+
+                                <!--Display Device Type-->
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="12" Text="Type : " Margin="8,0,4,0" FontWeight="Bold" Foreground="{StaticResource AppBarItemForegroundThemeBrush}"></TextBlock>
+                                    <TextBlock FontSize="12" x:Name="Device_Type" x:FieldModifier="public" Text="{Binding Type}" Margin="0,0,8,0" Foreground="{StaticResource AppBarItemForegroundThemeBrush}"></TextBlock>
+                                </StackPanel>
+                                
+                                <!--Display Device MAC Address-->
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,16" CornerRadius="6" >
+
+                                    <TextBlock FontSize="12" Text="MAC : " Margin="8,0,4,0" FontWeight="Bold" Foreground="{StaticResource AppBarItemForegroundThemeBrush}"></TextBlock>
+                                    <TextBlock FontSize="12" x:Name="Device_MAC_Address" x:FieldModifier="public" Text="{Binding MAC_Address}" Margin="0,0,8,0" Foreground="{StaticResource AppBarItemForegroundThemeBrush}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
+                    </toolkit:WrapPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <!--#endregion-->
+            
+        </GridView>
+        
+    </Grid>
+    
+</Page>

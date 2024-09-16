@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="Next_Home.Windows_Hello_Not_Configured_Dialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Next_Home"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Windows Hello Not Configured"
+    PrimaryButtonText="Cancel"
+    SecondaryButtonText="Set Up Now"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    DefaultButton="Secondary">
+
+
+    <Grid>
+
+        <!--Show Windows Hello Warning Message To User-->
+        <StackPanel Orientation="Horizontal">
+            <FontIcon Glyph="&#xEB68;" FontWeight="ExtraBold"
+                      VerticalAlignment="Top" Margin="0,4,4,0"></FontIcon>
+            <TextBlock TextWrapping="Wrap" MaxWidth="350">
+                <Run Text="Windows Hello" FontWeight="Bold" FontSize="16">     
+                </Run>
+                <Run Text="not configured in this system. For security reasons, we strongly recommend use of Windows Hello."></Run>
+            </TextBlock>
+        </StackPanel>
+
+
+    </Grid>
+</ContentDialog>

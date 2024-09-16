@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="Next_Home.Establish_Device_Connection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Next_Home"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Connect Device"
+    BorderBrush="{StaticResource SystemAccentColorLight3}">
+
+    <StackPanel HorizontalAlignment="Stretch">
+
+        <StackPanel HorizontalAlignment="Stretch">
+
+            <!--Display Connection State Icon-->
+            <FontIcon Glyph="&#xF384;" FontSize="20" HorizontalAlignment="Right" 
+                      Margin="0,0,0,0" Foreground="WhiteSmoke" 
+                      x:Name="Connection_State" x:FieldModifier="public"
+                      ToolTipService.ToolTip="Disconnected"></FontIcon>
+            <!--Display IOT Icon-->
+            <FontIcon Glyph="&#xF22C;" FontSize="40" HorizontalAlignment="Left" 
+                      Margin="28,8,0,0" Foreground="{StaticResource SystemAccentColorLight3}" 
+                      x:Name="IOT_Icon" x:FieldModifier="public"></FontIcon>
+
+            <!--Display Home Icon-->
+            <FontIcon Glyph="&#xEA8A;" FontSize="80" HorizontalAlignment="Center" 
+                      Foreground="{StaticResource SystemAccentColorLight3}"
+                      x:Name="Home_Icon" x:FieldModifier="public"></FontIcon>
+        </StackPanel>
+
+
+        <!--Display Device Name-->
+        <TextBlock  x:Name="Device_Name" x:FieldModifier="public" 
+                    FontSize="20" FontWeight="Bold"
+                    Margin="0,8,0,0"></TextBlock>
+
+
+
+        <!--Display Device MAC Address-->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+            <TextBlock Text="MAC" FontWeight="Bold"></TextBlock>
+            <TextBlock x:Name="Device_MAC_Address" x:FieldModifier="public" Margin="12,0,0,0"></TextBlock>
+        </StackPanel>
+
+        <!--Display Device Type-->
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Modules" FontWeight="Bold"></TextBlock>
+            <TextBlock x:Name="Device_Type" x:FieldModifier="public" Margin="12,0,0,0"></TextBlock>
+        </StackPanel>
+
+
+        <GridView  Margin="0,12,0,0" HorizontalAlignment="Center">
+            <!--Bluetooth-->
+            <GridViewItem ToolTipService.ToolTip="Connect with Bluetooth"
+                          x:Name="Connect_With_Bluetooth" 
+                          Tapped="Connect_With_Bluetooth_Tapped"
+                          x:FieldModifier="public">
+
+                <FontIcon Glyph="&#xE702;" FontSize="20"
+                          Margin="4,0,0,0" 
+                          x:Name="Bluetooth_Icon" x:FieldModifier="public">
+                </FontIcon>
+            </GridViewItem>
+
+            <!--Wi-Fi-->
+            <GridViewItem ToolTipService.ToolTip="Connect With Wifi"
+                          x:Name="Connect_With_Wifi">
+                <FontIcon Glyph="&#xE701;" FontSize="20"
+                          HorizontalAlignment="Center"
+                          x:Name="WiFi_Icon" x:FieldModifier="public">
+
+                </FontIcon>
+            </GridViewItem>
+
+            <!--Delete-->
+            <GridViewItem ToolTipService.ToolTip="Delete"
+                          x:Name="Delete_Device">
+                <FontIcon Glyph="&#xE74D;" FontSize="20" 
+                          HorizontalAlignment="Right"
+                          x:Name="Delete_Icon" x:FieldModifier="public">
+                </FontIcon>
+
+            </GridViewItem>
+
+            <GridViewItem ToolTipService.ToolTip="Cancel" 
+                          x:Name="Connect_Dialog_Cancel" Tapped="Connect_Dialog_Cancel_Tapped">
+                <!--Cacel-->
+                <FontIcon FontSize="20" Glyph="&#xE711;" ></FontIcon>
+            </GridViewItem>
+
+        </GridView>
+
+        <ProgressBar x:Name="Establishing_Connection_Progress" IsIndeterminate="True" HorizontalAlignment="Stretch" 
+                     Visibility="Collapsed" ></ProgressBar>
+    </StackPanel>
+</ContentDialog>

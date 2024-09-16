@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Next_Home.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Next_Home"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop/>
+    </Window.SystemBackdrop>
+
+    <Grid>
+
+        <NavigationView x:Name="MAIN_NAVIGATION_WINDOW" IsBackButtonVisible="Collapsed"
+                IsSettingsVisible="False" Loaded="MAIN_NAVIGATION_WINDOW_Loaded" x:FieldModifier="public">
+            
+            <NavigationView.MenuItems>
+
+                <!--Option For Adding New Device-->
+                <NavigationViewItem x:Name="NEW_DEVICE" x:FieldModifier="public" Content="New Device" Tapped="NEW_DEVICE_Tapped" >
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE836;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+
+
+                <!--Option For Showing Added Devices List-->
+                <NavigationViewItem x:Name="ADDED_DEVICES" x:FieldModifier="public" Content="Added Devices" 
+                             Tapped="ADDED_DEVICES_Tapped" >
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE70C;" ></FontIcon>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="MAIN_CONTENT_FRAME" x:FieldModifier="public"/>
+        </NavigationView>
+
+    </Grid>
+</Window>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Next_Home.Success_Message_Dialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Next_Home"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+>
+
+    <StackPanel Orientation="Horizontal" >
+        <FontIcon x:Name="Success_Dialog_Icon" x:FieldModifier="public" FontWeight="ExtraBold" Foreground="Green" Glyph="&#xEC61;"></FontIcon>
+        <TextBlock x:Name="Success_Dialog_Message" x:FieldModifier="public" Text="Device Added Successfully" Margin="10,10,0,0"></TextBlock>
+    </StackPanel>
+</Page>

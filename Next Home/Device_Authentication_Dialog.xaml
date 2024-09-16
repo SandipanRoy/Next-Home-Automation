@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="Next_Home.Device_Authentication_Dialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Device Authentication"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    PrimaryButtonText="Add"
+    PrimaryButtonClick="AuthenticationDialog_PrimaryButtonClick"
+    CloseButtonText="Cancel"
+    DefaultButton="Primary"
+    BorderBrush="{StaticResource ContentDialogBorderThemeBrush}"
+    BorderThickness="1"
+    mc:Ignorable="d"
+    >
+
+    <StackPanel Orientation="Horizontal">
+
+
+
+        <!--#region Display selected device name and Bluetooth address-->
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Center" CornerRadius="8" Margin="0,0,8,0">
+            <FontIcon Glyph="&#xEC75;" HorizontalAlignment="Center" Margin="0,0,0,8" FontSize="32" Foreground="{StaticResource AccentTextFillColorPrimaryBrush}"  />
+            <TextBlock Margin="0" FontSize="12" HorizontalAlignment="Center" Text="{Binding Selected_Device_Bluetooth_Address, Mode=OneWay}" Foreground="{StaticResource AppBarItemForegroundThemeBrush}"></TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="0,-4,0,0" FontWeight="SemiBold"  Text = "{Binding Selected_Device_Default_Name, Mode=OneWay}" Foreground="{StaticResource AppBarItemForegroundThemeBrush}"></TextBlock>
+        </StackPanel>
+        <!--#endregion-->
+
+        <!--Display seperator-->
+        <Line X1="10" X2="10" Y1="20" Y2="90" Margin="0,0,16,0" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="4" Stroke="{StaticResource AppBarSeparatorForegroundThemeBrush}"></Line>
+
+
+        <!--#region Display input fields for Device name and Password-->
+        <StackPanel Orientation="Vertical">
+            <!--Device Name Input Field-->
+        <StackPanel Orientation="Horizontal" Margin="0,16,0,0">
+            <FontIcon FontWeight="ExtraBold" Foreground="{StaticResource AccentTextFillColorPrimaryBrush}" Glyph="&#xF22C;"></FontIcon>
+            <TextBox x:Name="Device_Authentication_Name_Input" x:FieldModifier="private" Margin="10,0,0,0" Width="250" PlaceholderText="Enter Device Name E.g-Bedroom" VerticalAlignment="Center" HorizontalAlignment="Stretch" MaxLength="20"></TextBox>
+        </StackPanel>
+
+
+        <!--Password Input Field-->
+            <StackPanel Orientation="Horizontal" Margin="0,12,0,0">
+                <FontIcon FontWeight="ExtraBold" Foreground="{StaticResource AccentTextFillColorPrimaryBrush}" Glyph="&#xE72E;"></FontIcon>
+                <PasswordBox x:Name="Device_Authentication_Password_Input" x:FieldModifier="private" Margin="10,0,0,0" Width="250" PlaceholderText="Enter Password,Default 1234" MaxLength="16" ></PasswordBox>
+            </StackPanel>
+        </StackPanel>
+        <!--#endregion-->
+        
+    </StackPanel>
+</ContentDialog>
+
+
+

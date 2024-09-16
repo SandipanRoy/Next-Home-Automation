@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Next Home (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Next Home (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
