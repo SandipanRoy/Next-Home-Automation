@@ -1,7 +1,7 @@
 // MQTT Broker settings
 const char *mqtt_broker = "gded5aff.ala.asia-southeast1.emqxsl.com";
-const char *mqtt_username = "Sandipan";
-const char *mqtt_password = "Sroy@1998";
+const char *mqtt_username = "";
+const char *mqtt_password = "";
 const int mqtt_port = 8883;
 
 
